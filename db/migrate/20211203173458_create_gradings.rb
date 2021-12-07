@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# this class is used for migration
 class CreateGradings < ActiveRecord::Migration[6.1]
   def change
     create_table :gradings do |t|
