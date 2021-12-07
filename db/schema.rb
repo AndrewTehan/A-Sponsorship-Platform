@@ -12,7 +12,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_211_205_095_839) do
+ActiveRecord::Schema.define(version: 20_211_207_155_551) do
   # These are extensions that must be enabled in order to support this database
   enable_extension 'plpgsql'
 
@@ -66,7 +66,7 @@ ActiveRecord::Schema.define(version: 20_211_205_095_839) do
     t.datetime 'updated_at', precision: 6, null: false
   end
 
-  create_table 'requirements_vocabularies', force: :cascade do |t|
+  create_table 'requirements_phrases', force: :cascade do |t|
     t.string 'type'
     t.string 'requirement'
     t.datetime 'created_at', precision: 6, null: false
