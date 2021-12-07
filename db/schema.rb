@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -10,111 +12,110 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_05_095839) do
+ActiveRecord::Schema.define(version: 20_211_207_155_551) do
   # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+  enable_extension 'plpgsql'
 
-  create_table "comments", force: :cascade do |t|
-    t.string "text", null: false
-    t.integer "project_id", null: false
-    t.integer "user_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+  create_table 'comments', force: :cascade do |t|
+    t.string 'text', null: false
+    t.integer 'project_id', null: false
+    t.integer 'user_id', null: false
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
   end
 
-  create_table "contacts", force: :cascade do |t|
-    t.string "phone_number"
-    t.string "skype"
-    t.string "telegram"
-    t.integer "user_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+  create_table 'contacts', force: :cascade do |t|
+    t.string 'phone_number'
+    t.string 'skype'
+    t.string 'telegram'
+    t.integer 'user_id'
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
   end
 
-  create_table "gradings", force: :cascade do |t|
-    t.integer "criterion", null: false
-    t.integer "mark", limit: 2, null: false
-    t.integer "user_id", null: false
-    t.integer "project_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+  create_table 'gradings', force: :cascade do |t|
+    t.integer 'criterion', null: false
+    t.integer 'mark', limit: 2, null: false
+    t.integer 'user_id', null: false
+    t.integer 'project_id', null: false
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
   end
 
-  create_table "project_conditions", force: :cascade do |t|
-    t.integer "project_id", null: false
-    t.integer "requirement_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+  create_table 'project_conditions', force: :cascade do |t|
+    t.integer 'project_id', null: false
+    t.integer 'requirement_id', null: false
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
   end
 
-  create_table "projects", force: :cascade do |t|
-    t.string "title", null: false
-    t.string "description", default: "", null: false
-    t.integer "status", default: 0, null: false
-    t.integer "views_number", default: 0, null: false
-    t.integer "user_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+  create_table 'projects', force: :cascade do |t|
+    t.string 'title', null: false
+    t.string 'description', default: '', null: false
+    t.integer 'status', default: 0, null: false
+    t.integer 'views_number', default: 0, null: false
+    t.integer 'user_id', null: false
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
   end
 
-  create_table "regions", force: :cascade do |t|
-    t.string "region", null: false
-    t.integer "project_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+  create_table 'regions', force: :cascade do |t|
+    t.string 'region', null: false
+    t.integer 'project_id', null: false
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
   end
 
-  create_table "requirements_vocabularies", force: :cascade do |t|
-    t.string "type"
-    t.string "requirement"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+  create_table 'requirements_phrases', force: :cascade do |t|
+    t.string 'type'
+    t.string 'requirement'
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
   end
 
-  create_table "spheres", force: :cascade do |t|
-    t.integer "sphere", null: false
-    t.integer "project_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+  create_table 'spheres', force: :cascade do |t|
+    t.integer 'sphere', null: false
+    t.integer 'project_id', null: false
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
   end
 
-  create_table "sponsor_conditions", force: :cascade do |t|
-    t.integer "proposal_id", null: false
-    t.integer "requirement_id", null: false
-    t.string "value", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+  create_table 'sponsor_conditions', force: :cascade do |t|
+    t.integer 'proposal_id', null: false
+    t.integer 'requirement_id', null: false
+    t.string 'value', null: false
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
   end
 
-  create_table "sponsor_proposals", force: :cascade do |t|
-    t.integer "project_id", null: false
-    t.integer "user_id", null: false
-    t.integer "status", default: 0, null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+  create_table 'sponsor_proposals', force: :cascade do |t|
+    t.integer 'project_id', null: false
+    t.integer 'user_id', null: false
+    t.integer 'status', default: 0, null: false
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
   end
 
-  create_table "user_settings", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "entity_id", null: false
-    t.string "entity_name", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+  create_table 'user_settings', force: :cascade do |t|
+    t.integer 'user_id', null: false
+    t.integer 'entity_id', null: false
+    t.string 'entity_name', null: false
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
   end
 
-  create_table "users", force: :cascade do |t|
-    t.string "nick", default: "", null: false
-    t.string "email", null: false
-    t.string "about_me", default: "", null: false
-    t.integer "role", default: 0, null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.string "encrypted_password", default: "", null: false
-    t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  create_table 'users', force: :cascade do |t|
+    t.string 'nick', default: '', null: false
+    t.string 'email', null: false
+    t.string 'about_me', default: '', null: false
+    t.integer 'role', default: 0, null: false
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+    t.string 'encrypted_password', default: '', null: false
+    t.string 'reset_password_token'
+    t.datetime 'reset_password_sent_at'
+    t.datetime 'remember_created_at'
+    t.index ['email'], name: 'index_users_on_email', unique: true
+    t.index ['reset_password_token'], name: 'index_users_on_reset_password_token', unique: true
   end
-
 end
