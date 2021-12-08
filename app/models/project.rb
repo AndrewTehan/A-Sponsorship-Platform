@@ -9,5 +9,8 @@ class Project < ApplicationRecord
   has_many :gradings
   belongs_to :user
 
-  enum status: { public: 0, private: 1 }
+  validates :title, presence: true
+  validates :description, presence: true
+
+  # enum status: { public: 0, private: 1 }
 end
