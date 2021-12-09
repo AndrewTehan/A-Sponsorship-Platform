@@ -1,5 +1,3 @@
-require 'pry'
-
 class ProjectsController < ApplicationController
   def index
     @projects = Project.all
@@ -38,7 +36,6 @@ class ProjectsController < ApplicationController
   end
 
   def destroy
-    binding.pry
     @project = Project.find(params[:id])
     @project.destroy
 
