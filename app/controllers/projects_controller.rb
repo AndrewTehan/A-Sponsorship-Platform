@@ -8,11 +8,19 @@ class ProjectsController < ApplicationController
   end
 
   def new
+    @industrialist = current_user
     @project = Project.new
+
+    @project_region = ProjectsRegion.new
+    @project_sphere = ProjectsSphere.new
+    
+    @regions = Region.all
+    @spheres = Sphere.all
   end
+  
 
   def create
-    @project = Project.new(project_params)
+    @project = Project.new(user_id: current_user.id, **project_params)
 
     if @project.save
       redirect_to root_path
@@ -23,6 +31,8 @@ class ProjectsController < ApplicationController
 
   def edit
     @project = Project.find(params[:id])
+    @regions = Region.all
+    @spheres = Sphere.all
   end
 
   def update
@@ -45,6 +55,6 @@ class ProjectsController < ApplicationController
   private
 
     def project_params
-      params.require(:project).permit(:title, :user_id, :description)
+      params.require(:project).permit(:title, :description, region_ids: [], sphere_ids: [])
     end
 end

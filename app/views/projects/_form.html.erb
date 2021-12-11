@@ -1,23 +1,19 @@
-<%= form_with model: @project do |form| %>
+<%= simple_form_for @project do |form| %>
+  Region:
+  <%= form.collection_check_boxes :region_ids, @regions, :id, :region %><br>
+
+  Sphere:
+  <%= form.collection_check_boxes :sphere_ids, @spheres, :id, :sphere %>
+
   <div>
-    <%= form.label :title %><br>
-    <%= form.text_field :title %>
+    <%= form.input :title, label: :title %><br>
     <% @project.errors.full_messages_for(:title).each do |message| %>
       <div><%= message %></div>
     <% end %>
   </div>
 
   <div>
-    <%= form.label :user_id %><br>
-    <%= form.text_field :user_id %>
-    <% @project.errors.full_messages_for(:user_id).each do |message| %>
-      <div><%= message %></div>
-    <% end %>
-  </div>
-
-  <div>
-    <%= form.label :description %><br>
-    <%= form.text_area :description %><br>
+    <%= form.input :description, as: :text, label: :description %><br>
     <% @project.errors.full_messages_for(:description).each do |message| %>
       <div><%= message %></div>
     <% end %>
