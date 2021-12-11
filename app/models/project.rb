@@ -1,8 +1,16 @@
 # frozen_string_literal: true
 
 class Project < ApplicationRecord
-  has_and_belongs_to_many :regions
-  has_and_belongs_to_many :spheres
+  has_many :projects_regions
+  has_many :regions, through: :projects_regions
+
+  accepts_nested_attributes_for :projects_regions
+
+  has_many :projects_spheres
+  has_many :spheres, through: :projects_spheres
+
+  accepts_nested_attributes_for :projects_regions
+  
   has_many :comments
   has_many :project_conditions
   has_many :sponsor_proposals

@@ -1,5 +1,8 @@
 # frozen_string_literal: true
 
 class Region < ApplicationRecord
-  has_and_belongs_to_many :projects
+  has_many :projects_regions
+  has_many :projects, through: :projects_regions
+
+  validates :region, presence: true
 end
