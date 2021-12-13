@@ -1,9 +1,9 @@
 <%= simple_form_for @project do |form| %>
   Region:
-  <%= form.collection_check_boxes :region_ids, @regions, :id, :region %><br>
+  <%= form.collection_check_boxes :region_ids, @regions, :id, :name %><br>
 
   Sphere:
-  <%= form.collection_check_boxes :sphere_ids, @spheres, :id, :sphere %>
+  <%= form.collection_check_boxes :sphere_ids, @spheres, :id, :name %>
 
   <div>
     <%= form.input :title, label: :title %><br>
@@ -23,3 +23,11 @@
     <%= form.submit %>
   </div>
 <% end %>
+
+<script>
+  fetch('http://localhost:3000/regions/index')
+        .then(response => response.json())
+        .then(data => {
+          console.log(data ? JSON.parse(data) : {})
+        })
+</script>
