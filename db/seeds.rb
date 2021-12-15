@@ -1,19 +1,19 @@
 # frozen_string_literal: true
 
-Region.create([{ region: 'World' },
-               { region: 'Europe' },
-               { region: 'Asia' },
-               { region: 'Africa' },
-               { region: 'Australia' },
-               { region: 'South America' },
-               { region: 'North America' }])
+Region.create([{ name: 'World' },
+               { name: 'Europe' },
+               { name: 'Asia' },
+               { name: 'Africa' },
+               { name: 'Australia' },
+               { name: 'South America' },
+               { name: 'North America' }])
 
-Sphere.create([{ sphere: 'education' },
-               { sphere: 'media' },
-               { sphere: 'medicine' },
-               { sphere: 'health care' },
-               { sphere: 'trade' },
-               { sphere: 'ecology' },
-               { sphere: 'industry' },
-               { sphere: 'energetics' },
-               { sphere: 'entertainment' }])
+Sphere.create([{ name: 'education' },
+               { name: 'media' },
+               { name: 'medicine' },
+               { name: 'health care' },
+               { name: 'trade' },
+               { name: 'ecology' },
+               { name: 'industry' },
+               { name: 'energetics' },
+               { name: 'entertainment' }])

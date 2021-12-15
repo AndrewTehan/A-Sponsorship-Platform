@@ -54,7 +54,7 @@ class ProjectsController < ApplicationController
 
   private
 
-    def project_params
-      params.require(:project).permit(:title, :description, region_ids: [], sphere_ids: [])
-    end
+  def project_params
+    params.require(:project).permit(:title, :description, region_ids: [], sphere_ids: [])
+  end
 end

@@ -7,5 +7,11 @@ Rails.application.routes.draw do
 
   devise_for :users
   get 'users/index'
-  get 'regions/index'
+
+  namespace :api do
+    namespace :v1 do
+      resources :regions, only: [:index]
+      resources :spheres, only: [:index]
+    end
+  end
 end
