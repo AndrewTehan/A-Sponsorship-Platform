@@ -12,7 +12,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_211_207_155_551) do
+ActiveRecord::Schema.define(version: 20_211_211_192_817) do
   # These are extensions that must be enabled in order to support this database
   enable_extension 'plpgsql'
 
@@ -59,9 +59,22 @@ ActiveRecord::Schema.define(version: 20_211_207_155_551) do
     t.datetime 'updated_at', precision: 6, null: false
   end
 
+  create_table 'projects_regions', id: :serial, force: :cascade do |t|
+    t.integer 'project_id'
+    t.integer 'region_id'
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+  end
+
+  create_table 'projects_spheres', id: :serial, force: :cascade do |t|
+    t.integer 'project_id'
+    t.integer 'sphere_id'
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+  end
+
   create_table 'regions', force: :cascade do |t|
-    t.string 'region', null: false
-    t.integer 'project_id', null: false
+    t.string 'name', null: false
     t.datetime 'created_at', precision: 6, null: false
     t.datetime 'updated_at', precision: 6, null: false
   end
@@ -74,8 +87,7 @@ ActiveRecord::Schema.define(version: 20_211_207_155_551) do
   end
 
   create_table 'spheres', force: :cascade do |t|
-    t.integer 'sphere', null: false
-    t.integer 'project_id', null: false
+    t.string 'name', null: false
     t.datetime 'created_at', precision: 6, null: false
     t.datetime 'updated_at', precision: 6, null: false
   end
