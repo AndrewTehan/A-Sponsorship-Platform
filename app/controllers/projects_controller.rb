@@ -2,7 +2,7 @@
 
 # this is project controller
 class ProjectsController < ApplicationController
-  before_action :load_regions, :load_spheres only: [:new, :edit]
+  before_action :load_regions, :load_spheres, only: [:new, :edit]
   before_action :find_project, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -44,7 +44,7 @@ class ProjectsController < ApplicationController
   private
 
   def find_project
-    Project.find(params[:id])
+    @project = Project.find(params[:id])
   end
 
   def load_regions
