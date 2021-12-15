@@ -1,6 +1,9 @@
+# frozen_string_literal: true
+
 module Api
   module V1
-    class RegionsController < ApplicationController      
+    # this is region controller
+    class RegionsController < ApplicationController
       def index
         @regions = Region.all
 

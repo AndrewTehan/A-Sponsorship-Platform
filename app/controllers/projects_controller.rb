@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# this is project controller
 class ProjectsController < ApplicationController
   def index
     @projects = Project.all
@@ -13,11 +16,10 @@ class ProjectsController < ApplicationController
 
     @project_region = ProjectsRegion.new
     @project_sphere = ProjectsSphere.new
-    
+
     @regions = Region.all
     @spheres = Sphere.all
   end
-  
 
   def create
     @project = Project.new(user_id: current_user.id, **project_params)

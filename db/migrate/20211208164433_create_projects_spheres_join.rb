@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# this class is used for migration
 class CreateProjectsSpheresJoin < ActiveRecord::Migration[6.1]
   def self.up
     create_table :projects_spheres, id: false do |t|
