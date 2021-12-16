@@ -4,5 +4,5 @@ class SponsorProposal < ApplicationRecord
   has_many :sponsor_conditions
   belongs_to :project
 
-  enum status: { open: 0, rejected: 1 }
+  enum status: { unblock: 0, rejected: 1 }
 end
