@@ -26,10 +26,16 @@ RequirementsPhrase.create(
 
 reqPhrase = RequirementsPhrase.find_by(requirement: 'funding')
 
-user = User.create(email: "andrewtehanov@gmail.com", phone_number: "123", nick: "aaa", about_me: "", role: 0)
+user = User.create(email: "andrewtehanov@gmail.com",
+                   phone_number: "123",
+                   nick: "aaa",
+                   about_me: "",
+                   role: 0)
 
 project = Project.create(title: "ttt", description: "ddd", user_id: user.id)
 
 sponsor_proposal = SponsorProposal.create({user_id: user.id, project_id: project.id})
 
-SponsorCondition.create(proposal_id: sponsor_proposal.id, requirement_id: reqPhrase.id, value: "1000")
+SponsorCondition.create(sponsor_proposal_id: sponsor_proposal,
+                        requirements_phrase_id: reqPhrase,
+                        value: "1000")
