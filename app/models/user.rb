@@ -8,6 +8,7 @@ class User < ApplicationRecord
 
   has_many :projects
   has_many :user_settings
+  has_many :comments, dependent: :destroy
   has_one :contact
 
   enum status: { sponsor: 0, industrialist: 1 }

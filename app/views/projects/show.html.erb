@@ -1,6 +1,6 @@
-<h1><%= @project.title %></h1>
+<h1>Title: <%= @project.title %></h1>
 
-<p><%= @project.description %></p>
+<p>Description: <%= @project.description %></p>
 
 <ul>
   <li><%= link_to "Edit", edit_project_path(@project) %></li>
@@ -8,3 +8,9 @@
                   method: :delete,
                   data: { confirm: "Confirm" } %></li>
 </ul>
+
+<h2>Project comments</h2>
+<%= render @project.comments %>
+
+<h2>Add a comment to project:</h2>
+<%= render 'comments/form' %>
