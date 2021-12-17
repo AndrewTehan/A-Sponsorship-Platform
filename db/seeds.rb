@@ -27,7 +27,6 @@ RequirementsPhrase.create(
 reqPhrase = RequirementsPhrase.find_by(requirement: 'funding')
 
 user = User.create(email: "andrewtehanov@gmail.com",
-                   phone_number: "123",
                    nick: "aaa",
                    about_me: "",
                    role: 0)

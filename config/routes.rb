@@ -8,6 +8,10 @@ Rails.application.routes.draw do
   devise_for :users
   get 'users/index'
 
+  resources :projects do
+    resources :comments
+  end
+
   namespace :api do
     namespace :v1 do
       resources :regions, only: [:index]
