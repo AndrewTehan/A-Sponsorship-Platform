@@ -9,7 +9,9 @@ class ProjectsController < ApplicationController
     @projects = Project.all
   end
 
-  def show; end
+  def show
+    @requirements_phrases = RequirementsPhrase.all
+  end
 
   def new
     @project = Project.new

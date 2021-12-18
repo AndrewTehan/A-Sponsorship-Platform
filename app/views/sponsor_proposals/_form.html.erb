@@ -1,0 +1,12 @@
+
+<% binding.pry %>
+<%= form_with model: [ @project, @project.sponsor_proposals.build ] do |form| %>
+  
+  <%= form.collection_check_boxes :requirements_phrase_ids, @requirements_phrases, :id, :requirement %><br> 
+
+  <%= hidden_field_tag 'sponsor_proposal[user_id]', current_user.id %>
+
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
