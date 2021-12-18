@@ -24,7 +24,7 @@ RequirementsPhrase.create(
    {purpose: 0, requirement: "marketing"},
    {purpose: 0, requirement: "strategy"}])
 
-reqPhrase = RequirementsPhrase.find_by(requirement: 'funding')
+reqPhrase = RequirementsPhrase.find_by(requirement: 'funding').id
 
 user = User.create(email: "andrewtehanov@gmail.com",
                    nick: "aaa",

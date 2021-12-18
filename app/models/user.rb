@@ -7,6 +7,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :projects
+  has_many :sponsor_proposals
   has_many :user_settings
   has_many :comments, dependent: :destroy
   has_one :contact
