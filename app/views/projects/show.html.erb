@@ -2,6 +2,8 @@
 
 <p>Description: <%= @project.description %></p>
 
+<p>Industrialist: <%= @project.user.email %></p>
+
 <ul>
   <li><%= link_to "Edit", edit_project_path(@project) %></li>
   <li><%= link_to "Delete", project_path(@project),

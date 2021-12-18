@@ -1,8 +1,10 @@
 # frozen_string_literal: true
 
 class SponsorProposal < ApplicationRecord
-  has_many :sponsor_conditions
+  has_many :sponsor_conditions, dependent: :destroy
   has_many :requirements_phrases, through: :sponsor_conditions
+ 
+  accepts_nested_attributes_for :sponsor_conditions
 
   belongs_to :project
   belongs_to :user
