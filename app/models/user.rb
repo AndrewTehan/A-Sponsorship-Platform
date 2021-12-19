@@ -12,5 +12,5 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_one :contact
 
-  enum status: { sponsor: 0, industrialist: 1 }
+  enum role: { sponsor: 0, industrialist: 1 }
 end
