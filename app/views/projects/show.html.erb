@@ -13,11 +13,11 @@
 
 <div>
   <div style="float: left;">
+    <h2>Add a comment to project:</h2>
+    <%= render partial: 'comments/form', locals: {commentable_type: 'Project', commentable_id: @project.id} %>
+
     <h2>Project comments</h2>
     <%= render @project.comments %>
-
-    <h2>Add a comment to project:</h2>
-    <%= render 'comments/form' %>
   </div>
 
   <div style="float: left; margin-left: 20%;">

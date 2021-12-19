@@ -8,9 +8,7 @@ Rails.application.routes.draw do
   devise_for :users
   get 'users/index'
 
-  resources :projects do
-    resources :comments
-  end
+  resources :comments
 
   resources :projects do
     resources :sponsor_proposals

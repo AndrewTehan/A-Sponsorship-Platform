@@ -1,8 +1,13 @@
- <p>
-    <strong>User:</strong>
-    <%= sponsor_proposal.user.email %>
-  </p>
-  <p>
-    <strong>User comment:</strong>
-    <%# comment.text %>
-  </p>
+<div class="comment-wrapper <%= comment.commentable_type.downcase %>">
+<p>
+  <strong>User:</strong>
+  <%= comment.user.email %>
+</p>
+<p>
+  <strong>User comment:</strong>
+  <%= comment.text %>
+</p>
+<%= render partial: 'comments/form', locals: {commentable_type: 'Comment', commentable_id: comment.id} %>
+
+<%= render comment.comments, locals: {commentable_type: 'Project'} %>
+</div>
