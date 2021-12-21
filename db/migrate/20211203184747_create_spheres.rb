@@ -1,6 +1,3 @@
-# frozen_string_literal: true
-
-# this class is used for migration
 class CreateSpheres < ActiveRecord::Migration[6.1]
   def change
     create_table :spheres do |t|
