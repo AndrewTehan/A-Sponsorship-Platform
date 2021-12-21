@@ -1,8 +1,10 @@
-<%= form_with model: [ @project, @project.comments.build ] do |form| %>
+<%= simple_form_for Comment.new do |form| %>
   <p>
     <%= form.label :text %><br>
     <%= form.text_area :text %>
-    <%= hidden_field_tag 'comment[user_id]', current_user.id %>
+    <%= form.hidden_field :user_id, value: current_user.id %>
+    <%= form.hidden_field :commentable_id, value: commentable_id %>
+    <%= form.hidden_field :commentable_type, value: commentable_type %>
   </p>
   <p>
     <%= form.submit %>

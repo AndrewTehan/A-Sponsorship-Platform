@@ -10,6 +10,7 @@ module Projects
         project.save
         project.regions << regions
         project.spheres << spheres
+        project.requirements_phrases << conditions
       end
     end
 
@@ -21,6 +22,10 @@ module Projects
 
     def spheres
       Sphere.where(id: @project_params[:sphere_ids])
+    end
+
+    def conditions
+      RequirementsPhrase.where(id: @project_params[:condition_ids])
     end 
 
     def project_properties

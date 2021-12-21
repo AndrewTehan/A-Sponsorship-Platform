@@ -8,8 +8,10 @@ Rails.application.routes.draw do
   devise_for :users
   get 'users/index'
 
+  resources :comments
+
   resources :projects do
-    resources :comments
+    resources :sponsor_proposals
   end
 
   namespace :api do

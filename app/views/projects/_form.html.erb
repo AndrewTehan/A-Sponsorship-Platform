@@ -1,9 +1,13 @@
 <%= simple_form_for @project do |form| %>
-  Region:
- <%= form.collection_check_boxes :region_ids, @regions, :id, :name %><br> 
+  Regions:
+  <%= form.collection_check_boxes :region_ids, @regions, :id, :name %><br> 
+  <%# form.collection_select :region_ids, @regions, :id, :name, { multiple: true } %>
 
-  Sphere:
- <%= form.collection_check_boxes :sphere_ids, @spheres, :id, :name %> 
+  Spheres:
+  <%= form.collection_check_boxes :sphere_ids, @spheres, :id, :name %><br>
+
+  Conditions:
+  <%= form.collection_check_boxes :requirements_phrase_ids, @conditions, :id, :requirement %> 
 
   <div>
     <%= form.input :title, label: :title %><br>
