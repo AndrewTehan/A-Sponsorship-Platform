@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 Region.create([{ name: 'World' },
                { name: 'Europe' },
                { name: 'Asia' },

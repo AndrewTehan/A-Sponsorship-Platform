@@ -10,7 +10,7 @@ class SponsorProposalsController < ApplicationController
 
   private
 
-    def sponsor_proposal_params
-      params.require(:sponsor_proposal).permit(:user_id, sponsor_conditions_attributes: [:value, :requirements_phrase_id])
-    end
+  def sponsor_proposal_params
+    params.require(:sponsor_proposal).permit(:user_id, sponsor_conditions_attributes: %i[value requirements_phrase_id])
+  end
 end

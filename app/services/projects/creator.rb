@@ -15,10 +15,10 @@ module Projects
     end
 
     private
-    
+
     def regions
       Region.where(id: @project_params[:region_ids])
-    end 
+    end
 
     def spheres
       Sphere.where(id: @project_params[:sphere_ids])
@@ -26,7 +26,7 @@ module Projects
 
     def conditions
       RequirementsPhrase.where(id: @project_params[:condition_ids])
-    end 
+    end
 
     def project_properties
       @project_params.slice(:title, :description)

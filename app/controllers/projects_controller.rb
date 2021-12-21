@@ -1,9 +1,6 @@
-# frozen_string_literal: true
-
-# this is project controller
 class ProjectsController < ApplicationController
-  before_action :load_regions, :load_spheres, :load_conditions, only: [:new, :edit]
-  before_action :find_project, only: [:show, :edit, :update, :destroy]
+  before_action :load_regions, :load_spheres, :load_conditions, only: %i[new edit]
+  before_action :find_project, only: %i[show edit update destroy]
 
   def index
     @projects = Project.all
