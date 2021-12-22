@@ -10,18 +10,23 @@ module Projects
         project.save
         project.regions << regions
         project.spheres << spheres
+        project.requirements_phrases << conditions
       end
     end
 
     private
-    
+
     def regions
       Region.where(id: @project_params[:region_ids])
-    end 
+    end
 
     def spheres
       Sphere.where(id: @project_params[:sphere_ids])
-    end 
+    end
+
+    def conditions
+      RequirementsPhrase.where(id: @project_params[:condition_ids])
+    end
 
     def project_properties
       @project_params.slice(:title, :description)

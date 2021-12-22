@@ -1,11 +1,15 @@
 <h1>Projects</h1>
 
 <ul>
-  <% @projects.each do |project| %>
-    <li>
-      <%= link_to project.title, project %>
-    </li>
+  <% unless @projects.nil? %>
+    <% @projects.each do |project| %>
+      <li>
+        <%= link_to project.title, project %>
+      </li>
+    <% end %>
   <% end %>
 </ul>
 
-<%= link_to "New project", new_project_path %>
+<% if current_user.role == "businessman" %>
+  <%= link_to "New project", new_project_path %>
+<% end %>

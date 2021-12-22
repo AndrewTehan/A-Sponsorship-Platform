@@ -1,6 +1,29 @@
-<h1><%= @project.title %></h1>
+<h1>Title: <%= @project.title %></h1>
 
-<p><%= @project.description %></p>
+<p>Description: <%= @project.description %></p>
+
+<p>Businessman: <%= @project.user.email %></p>
+
+<p>Regions:</p>
+<ul>
+  <% @project.regions.each do |region| %>
+    <li><%= region.name %></li>
+  <% end %>
+</ul>
+
+<p>Spheres:</p>
+<ul>
+  <% @project.spheres.each do |sphere| %>
+    <li><%= sphere.name %></li>
+  <% end %>
+</ul>
+
+<p>Project requirement:</p>
+<ul>
+  <% @project.requirements_phrases.each do |requirement| %>
+    <li><%= requirement.requirement %></li>
+  <% end %>
+</ul>
 
 <ul>
   <li><%= link_to "Edit", edit_project_path(@project) %></li>
@@ -8,3 +31,21 @@
                   method: :delete,
                   data: { confirm: "Confirm" } %></li>
 </ul>
+
+<div>
+  <div style="float: left;">
+    <h2>Add a comment to project:</h2>
+    <%= render partial: 'comments/form', locals: {commentable_type: 'Project', commentable_id: @project.id} %>
+
+    <h2>Project comments</h2>
+    <%= render @project.comments %>
+  </div>
+
+  <div style="float: left; margin-left: 20%;">
+    <h2>Sponsor proposal</h2>
+    <%= render @project.sponsor_proposals %>
+
+    <h2>Add a proposal to project:</h2>
+    <%= render 'sponsor_proposals/form' %>
+  </div>
+</div>

@@ -1,0 +1,9 @@
+ <p>
+    <strong>Sponsor:</strong>
+    <%= sponsor_proposal.user.email %>
+  </p>
+  <p>
+    <strong>Sponsor proposal:</strong>
+      <%= sponsor_proposal.sponsor_conditions.last.requirements_phrase.requirement %> -
+      <%= sponsor_proposal.sponsor_conditions.last.value %>
+  </p>

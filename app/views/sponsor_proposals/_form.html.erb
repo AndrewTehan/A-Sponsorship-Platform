@@ -1,0 +1,12 @@
+
+<%= form_with model: [ @project, @project.sponsor_proposals.build ] do |form| %>
+  <p>
+    <%= form.collection_select 'sponsor_conditions_attributes[][requirements_phrase_id]', @requirements_phrases, :id, :requirement %><br> 
+    <%= form.text_area 'sponsor_conditions_attributes[][value]' %>
+    <%= hidden_field_tag 'sponsor_proposal[user_id]', current_user.id %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>

@@ -1,10 +1,12 @@
-# frozen_string_literal: true
-
 class Project < ApplicationRecord
+  scope :businessman_own_projects, -> { where(user_id: c) }
+
   has_and_belongs_to_many :regions
   has_and_belongs_to_many :spheres
+  has_and_belongs_to_many :requirements_phrases
 
-  has_many :comments
+  has_many :comments, as: :commentable
+
   has_many :project_conditions
   has_many :sponsor_proposals
   has_many :gradings
