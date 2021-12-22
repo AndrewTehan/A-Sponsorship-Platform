@@ -1,6 +1,4 @@
 class SponsorProposalsController < ApplicationController
-  def index; end
-
   def create
     @project = Project.find(params[:project_id])
     SponsorProposal.create(project_id: @project.id, **sponsor_proposal_params)

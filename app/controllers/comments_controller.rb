@@ -1,7 +1,5 @@
 class CommentsController < ApplicationController
   def create
-    # TODO: if comment create - redirect to project
-    # unless - redirect with error notice
     Comment.create(comment_params)
     redirect_back fallback_location: root_path
   end

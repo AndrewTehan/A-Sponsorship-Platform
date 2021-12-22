@@ -2,7 +2,28 @@
 
 <p>Description: <%= @project.description %></p>
 
-<p>Industrialist: <%= @project.user.email %></p>
+<p>Businessman: <%= @project.user.email %></p>
+
+<p>Regions:</p>
+<ul>
+  <% @project.regions.each do |region| %>
+    <li><%= region.name %></li>
+  <% end %>
+</ul>
+
+<p>Spheres:</p>
+<ul>
+  <% @project.spheres.each do |sphere| %>
+    <li><%= sphere.name %></li>
+  <% end %>
+</ul>
+
+<p>Project requirement:</p>
+<ul>
+  <% @project.requirements_phrases.each do |requirement| %>
+    <li><%= requirement.requirement %></li>
+  <% end %>
+</ul>
 
 <ul>
   <li><%= link_to "Edit", edit_project_path(@project) %></li>

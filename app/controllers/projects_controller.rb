@@ -3,7 +3,8 @@ class ProjectsController < ApplicationController
   before_action :find_project, only: %i[show edit update destroy]
 
   def index
-    @projects = Project.all
+    @projects = Project.all if current_user.role == "sponsor"
+    @projects = Project.where(user_id: current_user) if current_user.role == "businessman"
   end
 
   def show
@@ -51,7 +52,7 @@ class ProjectsController < ApplicationController
   end
 
   def load_conditions
-    @conditions = RequirementsPhrase.all
+    @conditions = RequirementsPhrase.for_sponsor
   end
 
   def load_spheres
