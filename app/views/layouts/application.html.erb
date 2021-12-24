@@ -12,7 +12,6 @@
 
   <body>
     <%= link_to "sign_out", destroy_user_session_path, method: :delete %>
-    <%= link_to "edit", edit_user_registration_path, method: :get %>
     <%= yield %>
   </body>
 </html>

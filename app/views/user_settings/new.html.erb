@@ -1,0 +1,16 @@
+<h1>Add User Settings</h1>
+
+<%= simple_form_for @user_setting  do |form| %>
+  Regions:
+  <%= form.collection_check_boxes :settable_id, @regions, :id, :name %><br> 
+
+  Spheres:
+  <%# form.collection_check_boxes :settable_id, @spheres, :id, :name %><br>
+
+  Conditions:
+  <%# form.collection_check_boxes :settable_id, @conditions, :id, :requirement %> 
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

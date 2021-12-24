@@ -4,22 +4,6 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <p>My settings</p>
-    <%= f.hidden_field 'user_settings[user_id]', value: current_user.id %>
-
-
-    Regions:
-      <%= f.collection_check_boxes 'user_settings', Region.all, :id, :name %><br> 
-
-    Spheres:
-      <%# f.collection_check_boxes :user_settings[:settable_id,  settable_type: 'Sphere'], Sphere.all, :id, :name %><br>
-
-    Conditions:
-      <%# f.collection_check_boxes :user_settings[:settable_id,  settable_type: 'RequirementsPhrase'], RequirementsPhrase.all, :id, :requirement %> 
-
-    <%= f.input :nick, autofocus: true%>
-
-    <%= f.input :email, autofocus: true %>
 
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
       <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
