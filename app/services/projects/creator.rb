@@ -25,7 +25,7 @@ module Projects
     end
 
     def conditions
-      RequirementsPhrase.where(id: @project_params[:condition_ids])
+      RequirementsPhrase.where(id: @project_params[:requirements_phrase_ids])
     end
 
     def project_properties

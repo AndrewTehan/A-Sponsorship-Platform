@@ -2,13 +2,13 @@ class UserSettingsController < ApplicationController
   before_action :load_regions, :load_spheres, :load_requirements, only: :new
 
   def new
-    @user_setting = UserSetting.new
+    @user_setting_form = UserSettingForm.new
   end
 
   def create
-    @user_setting = UserSetting.new(user_setting_params)
+    @project = UserSettings::Creator.new(user_setting_params, current_user).call
 
-    if @user_setting.save
+    if @project
       redirect_to users_my_settings_path
     else
       render :new
@@ -29,7 +29,7 @@ class UserSettingsController < ApplicationController
   end
 
   def load_requirements
-    @conditions = RequirementsPhrase.for_sponsor
+    @requirements = RequirementsPhrase.for_sponsor
   end
 
   def load_spheres
@@ -37,6 +37,6 @@ class UserSettingsController < ApplicationController
   end
 
   def user_setting_params
-    params.require(:user_setting).permit( :settable_id )
+    params.require(:user_setting_form).permit(:user_id, requirement_ids: [],sphere_ids: [], region_ids: [])
   end
 end
