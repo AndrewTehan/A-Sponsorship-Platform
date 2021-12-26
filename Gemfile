@@ -16,6 +16,9 @@ gem 'sass-rails', '>= 6'
 gem 'turbolinks'
 
 gem 'simple_form'
+gem 'kaminari', '~> 1.2', '>= 1.2.2'
+gem 'bootstrap', '~> 5.1.3'
+gem 'jquery-rails'
 
 # Authentication
 gem 'devise'

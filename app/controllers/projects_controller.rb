@@ -3,8 +3,7 @@ class ProjectsController < ApplicationController
   before_action :find_project, only: %i[show edit update destroy]
 
   def index
-    @projects = Project.all if current_user.role == "sponsor"
-    @projects = Project.where(user_id: current_user) if current_user.role == "businessman"
+    @projects = Project.page params[:page]
   end
 
   def show
