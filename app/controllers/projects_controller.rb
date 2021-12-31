@@ -4,7 +4,7 @@ class ProjectsController < ApplicationController
 
   def index
     projects_array = Projects::Filter.new(current_user).do_filter
-    @projects = Kaminari.paginate_array(projects_array).page(params[:page]).per(3)
+    @projects = Kaminari.paginate_array(projects_array).page(params[:page]).per(5)
   end
 
   def show
