@@ -4,19 +4,22 @@ class ProjectsController < ApplicationController
 
   def index
     @projects = Project.page params[:page]
+    authorize @projects
   end
 
   def show
     @requirements_phrases = RequirementsPhrase.all
+    authorize @project
   end
 
   def new
     @project = Project.new
+    authorize @project    
   end
 
   def create
     @project = Projects::Creator.new(project_params, current_user).call
-
+    authorize @project
     if @project
       redirect_to root_path
     else
@@ -24,9 +27,12 @@ class ProjectsController < ApplicationController
     end
   end
 
-  def edit; end
+  def edit
+    authorize @project
+  end
 
   def update
+    authorize @project
     if @project.update(project_params)
       redirect_to root_path
     else
@@ -35,12 +41,18 @@ class ProjectsController < ApplicationController
   end
 
   def destroy
+    authorize @project
     @project.destroy
-
     redirect_to root_path
   end
 
+  rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
+ 
   private
+ 
+  def user_not_authorized
+    redirect_to(request.referrer || rootpath)
+  end
 
   def find_project
     @project = Project.find(params[:id])
