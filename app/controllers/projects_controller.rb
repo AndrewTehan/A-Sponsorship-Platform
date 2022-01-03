@@ -4,6 +4,7 @@ class ProjectsController < ApplicationController
 
   def index
     @projects = Project.page params[:page]
+    check_lifetime
   end
 
   def show
@@ -38,6 +39,10 @@ class ProjectsController < ApplicationController
     @project.destroy
 
     redirect_to root_path
+  end
+
+  def check_lifetime
+    ProjectLifetimeWorker.perform_async
   end
 
   private
