@@ -1,6 +1,4 @@
 class Project < ApplicationRecord
-  scope :businessman_own_projects, -> { where(user_id: c) }
-
   has_and_belongs_to_many :regions
   has_and_belongs_to_many :spheres
   has_and_belongs_to_many :requirements_phrases
@@ -17,5 +15,5 @@ class Project < ApplicationRecord
 
   paginates_per 3
 
-  # enum status: { public: 0, private: 1 }
+  enum state: { open: 0, close: 1 }
 end
