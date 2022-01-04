@@ -3,8 +3,6 @@ require 'sidekiq/web'
 Rails.application.routes.draw do
   mount Sidekiq::Web => '/sidekiq'
 
-  get 'check_lifetime', to: "projects#check_lifetime"
-
   root 'projects#index'
   get 'users/my_settings'
 
@@ -16,7 +14,9 @@ Rails.application.routes.draw do
   resources :comments
 
   resources :projects do
-    resources :sponsor_proposals
+    resources :sponsor_proposals do
+      get 'reject'
+    end
   end
 
   namespace :api do
