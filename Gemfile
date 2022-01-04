@@ -21,6 +21,7 @@ gem 'kaminari', '~> 1.2', '>= 1.2.2'
 gem 'bootstrap', '~> 5.1.3'
 gem 'jquery-rails'
 gem 'sidekiq'
+gem 'pundit'
 
 # Authentication
 gem 'devise'
