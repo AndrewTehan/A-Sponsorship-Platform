@@ -14,6 +14,7 @@ gem 'sass-rails', '>= 6'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 gem 'turbolinks'
+gem "figaro"
 
 gem 'simple_form'
 gem 'kaminari', '~> 1.2', '>= 1.2.2'
@@ -33,6 +34,7 @@ end
 group :development do
   gem 'listen', '~> 3.3'
   gem 'rubocop'
+  gem 'mailcatcher'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
