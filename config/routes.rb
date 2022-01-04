@@ -1,4 +1,10 @@
+require 'sidekiq/web'
+
 Rails.application.routes.draw do
+  mount Sidekiq::Web => '/sidekiq'
+
+  get 'check_lifetime', to: "projects#check_lifetime"
+
   root 'projects#index'
   get 'users/my_settings'
 
