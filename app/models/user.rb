@@ -1,8 +1,7 @@
 class User < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable,
+         :confirmable
 
   has_many :user_settings
   has_many :projects
@@ -11,4 +10,6 @@ class User < ApplicationRecord
   has_one :contact
   
   enum role: { sponsor: 0, businessman: 1 }
+
+  scope :sponsors, -> { where(role: 0) }
 end

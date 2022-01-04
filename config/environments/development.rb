@@ -33,8 +33,25 @@ Rails.application.configure do
     config.cache_store = :null_store
   end
 
+  config.active_job.queue_adapter = :sidekiq
+
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
+
+  config.active_job.queue_adapter = :sidekiq
+   
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.smtp_settings = {
+    address: 'smtp.gmail.com',
+    port: 587,
+    user_name: ENV['email_user_name'],
+    password: ENV['email_password'],
+    domain: 'smtp.gmail.com',
+    authentication: 'plain',
+    openssl_verify_mode: 'none'
+  }
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' } 
 
   # Raise exceptions for disallowed deprecations.
   config.active_support.disallowed_deprecation = :raise
