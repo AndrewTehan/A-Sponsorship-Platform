@@ -1,0 +1,18 @@
+<h1>Add User Settings</h1>
+
+<%= simple_form_for @user_setting_form, url: user_settings_path do |form| %>
+  <%= form.hidden_field :user_id, value: current_user.id %>
+
+  Regions:
+  <%= form.collection_check_boxes :region_ids, @regions, :id, :name %><br> 
+
+  Spheres:
+  <%= form.collection_check_boxes :sphere_ids, @spheres, :id, :name %><br>
+
+  Conditions:
+  <%= form.collection_check_boxes :requirement_ids, @requirements, :id, :name %> 
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

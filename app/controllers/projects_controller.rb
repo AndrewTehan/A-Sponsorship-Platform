@@ -3,8 +3,7 @@ class ProjectsController < ApplicationController
   before_action :find_project, only: %i[show edit update destroy]
 
   def index
-    @projects = Project.all if current_user.role == "sponsor"
-    @projects = Project.where(user_id: current_user) if current_user.role == "businessman"
+    @projects = Project.page params[:page]
   end
 
   def show
@@ -60,6 +59,6 @@ class ProjectsController < ApplicationController
   end
 
   def project_params
-    params.require(:project).permit(:title, :description, condition_ids: [], region_ids: [], sphere_ids: [])
+    params.require(:project).permit(:title, :description, requirements_phrase_ids: [], region_ids: [], sphere_ids: [])
   end
 end

@@ -10,6 +10,8 @@
   <% end %>
 </ul>
 
+<%= paginate @projects %>
+
 <% if current_user.role == "businessman" %>
   <%= link_to "New project", new_project_path %>
 <% end %>

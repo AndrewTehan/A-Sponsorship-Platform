@@ -17,17 +17,16 @@ Sphere.create([{ name: 'education' },
                { name: 'entertainment' }])
 
 RequirementsPhrase.create(
-  [{purpose: 0, requirement: "funding"},
-   {purpose: 0, requirement: "mentoring"},
-   {purpose: 0, requirement: "marketing"},
-   {purpose: 0, requirement: "strategy"}])
+  [{purpose: 0, name: "funding"},
+   {purpose: 0, name: "mentoring"},
+   {purpose: 0, name: "marketing"},
+   {purpose: 0, name: "strategy"}])
 
-reqPhrase = RequirementsPhrase.find_by(requirement: 'funding').id
+reqPhrase = RequirementsPhrase.find_by(name: 'funding').id
 
-user = User.create(email: "andrewtehanov@gmail.com",
-                   nick: "aaa",
-                   about_me: "",
-                   role: 0)
+user = User.create(email: "b@gmail.com", nick: "b", about_me: "b", role: 1, password: 111111)
+
+User.create(email: "s@gmail.com", nick: "s", about_me: "s", role: 0, password: 111111 )
 
 project = Project.create(title: "ttt", description: "ddd", user_id: user.id)
 

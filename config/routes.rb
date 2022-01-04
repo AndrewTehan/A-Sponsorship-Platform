@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
   root 'projects#index'
-
-  resources :projects
+  get 'users/my_settings'
 
   devise_for :users
-  get 'users/index'
+
+  resources :users
+  resources :user_settings
 
   resources :comments
 
