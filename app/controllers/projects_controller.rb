@@ -4,7 +4,6 @@ class ProjectsController < ApplicationController
 
   def index
     @projects = Project.page params[:page]
-    check_lifetime
   end
 
   def show
@@ -17,10 +16,6 @@ class ProjectsController < ApplicationController
 
   def create
     @project = Projects::Creator.new(project_params, current_user).call
-
-    User.find_each do |user|
-      ProjectMailer.with(user: user).new_project_email.deliver_now
-    end
 
     if @project
       redirect_to root_path
@@ -43,10 +38,6 @@ class ProjectsController < ApplicationController
     @project.destroy
 
     redirect_to root_path
-  end
-
-  def check_lifetime
-    ProjectLifetimeWorker.perform_async
   end
 
   private

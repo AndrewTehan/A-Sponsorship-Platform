@@ -40,7 +40,6 @@ Rails.application.configure do
 
   config.active_job.queue_adapter = :sidekiq
    
-  binding.pry
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
   config.action_mailer.smtp_settings = {

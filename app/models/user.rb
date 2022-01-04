@@ -10,4 +10,6 @@ class User < ApplicationRecord
   has_one :contact
   
   enum role: { sponsor: 0, businessman: 1 }
+
+  scope :sponsors, -> { where(role: 0) }
 end

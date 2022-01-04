@@ -5,9 +5,10 @@
   </head>
 
    <body>
-    <h1>Welcome!!!</h1>
+    <h1>Welcome, <%= @user.nick%>!!!</h1>
     <p>
       One of the businessmen published a new idea, hurry up to get to know it<br>
+      <%= "http://127.0.0.1:3000/projects/#{@project.id}" %>
     </p>
     <p>Thanks, have a great day!</p>
   </body>
