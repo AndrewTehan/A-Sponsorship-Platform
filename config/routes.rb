@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   root 'projects#index'
   get 'users/my_settings'
+  post '/search', to: 'search#search'
 
   devise_for :users
 

@@ -22,6 +22,8 @@ gem 'bootstrap', '~> 5.1.3'
 gem 'jquery-rails'
 gem 'sidekiq'
 gem 'pundit'
+gem 'elasticsearch-model', github: 'elastic/elasticsearch-rails', branch: '6.x'
+gem 'elasticsearch-rails', github: 'elastic/elasticsearch-rails', branch: '6.x'
 
 # Authentication
 gem 'devise'
