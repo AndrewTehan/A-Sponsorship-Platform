@@ -20,10 +20,6 @@ class SponsorProposalsController < ApplicationController
   def sponsor_proposal
     SponsorProposal.find(params[:sponsor_proposal_id])  
   end
- 
-  def user_not_authorized
-    redirect_to(request.referrer || rootpath)
-  end
 
   def sponsor_proposal_params
     params.require(:sponsor_proposal).permit(:user_id, sponsor_conditions_attributes: %i[value requirements_phrase_id])
