@@ -1,13 +1,9 @@
 <%= simple_form_for @project do |form| %>
-  Regions:
-  <%= form.collection_check_boxes :region_ids, @regions, :id, :name %><br> 
-  <%# form.collection_select :region_ids, @regions, :id, :name, { multiple: true } %>
+  <%= form.collection_select(:region_ids, @regions, :id, :name, {:prompt => "Please Select a Region"}, {:multiple => true}) %>
 
-  Spheres:
-  <%= form.collection_check_boxes :sphere_ids, @spheres, :id, :name %><br>
+  <%= form.collection_select(:sphere_ids, @spheres, :id, :name, {:prompt => "Please Select a Sphere"}, {:multiple => true}) %>
 
-  Conditions:
-  <%= form.collection_check_boxes :requirements_phrase_ids, @conditions, :id, :name %> 
+  <%= form.collection_select(:requirements_phrase_ids, @conditions, :id, :name, {:prompt => "Please Select a Condition"}, {:multiple => true}) %><br> 
 
   <div>
     <%= form.input :title, label: :title %><br>
