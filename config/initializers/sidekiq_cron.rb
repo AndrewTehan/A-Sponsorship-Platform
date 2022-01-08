@@ -1,1 +1,1 @@
-Sidekiq::Cron::Job.create(name: 'Hard worker - every 5min', cron: '*/1 * * * *', class: 'HardWorker')
+Sidekiq::Cron::Job.create(name: 'Hard worker - every day', cron: '30 3 * * *', class: 'HardWorker')

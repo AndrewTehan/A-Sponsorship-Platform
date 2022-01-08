@@ -16,5 +16,5 @@ class Project < ApplicationRecord
 
   paginates_per 3
 
-  enum state: { active: 0, close: 1 }
+  enum state: { active: 0, closed: 1 }
 end
