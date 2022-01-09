@@ -1,14 +1,17 @@
-class Project < ApplicationRecord
-  scope :businessman_own_projects, -> { where(user_id: c) }
+require 'elasticsearch/model'
 
+class Project < ApplicationRecord
+  include Elasticsearch::Model
+
+  
   has_and_belongs_to_many :regions
   has_and_belongs_to_many :spheres
   has_and_belongs_to_many :requirements_phrases
 
-  has_many :comments, as: :commentable
+  has_many :comments, as: :commentable, dependent: :destroy
 
   has_many :project_conditions
-  has_many :sponsor_proposals
+  has_many :sponsor_proposals, dependent: :destroy
   has_many :gradings
   belongs_to :user
 
@@ -17,5 +20,8 @@ class Project < ApplicationRecord
 
   paginates_per 5
 
-  # enum status: { public: 0, private: 1 }
+  enum state: { active: 0, closed: 1 }
 end
+
+Project.__elasticsearch__.create_index!
+Project.import

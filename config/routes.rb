@@ -1,6 +1,11 @@
+require 'sidekiq/web'
+
 Rails.application.routes.draw do
+  mount Sidekiq::Web => '/sidekiq'
+
   root 'projects#index'
   get 'users/my_settings'
+  post '/search', to: 'search#search'
 
   devise_for :users
 
@@ -10,7 +15,9 @@ Rails.application.routes.draw do
   resources :comments
 
   resources :projects do
-    resources :sponsor_proposals
+    resources :sponsor_proposals do
+      get 'reject'
+    end
   end
 
   namespace :api do

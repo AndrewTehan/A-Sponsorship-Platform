@@ -7,5 +7,5 @@ class SponsorProposal < ApplicationRecord
   belongs_to :project
   belongs_to :user
 
-  enum status: { unblock: 0, rejected: 1 }
+  enum status: { unblocked: 0, rejected: 1 }
 end
