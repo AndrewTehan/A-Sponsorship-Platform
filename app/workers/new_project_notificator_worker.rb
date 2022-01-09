@@ -1,6 +1,6 @@
 class NewProjectNotificatorWorker
   include Sidekiq::Worker
-  
+
   def perform(project_id)
     project = Project.find(project_id)
     User.sponsors.each do |sponsor|

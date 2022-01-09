@@ -37,6 +37,6 @@ class UserSettingsController < ApplicationController
   end
 
   def user_setting_params
-    params.require(:user_setting_form).permit(:user_id, requirement_ids: [],sphere_ids: [], region_ids: [])
+    params.require(:user_setting_form).permit(:user_id, requirement_ids: [], sphere_ids: [], region_ids: [])
   end
 end
