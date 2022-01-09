@@ -50,10 +50,6 @@ class ProjectsController < ApplicationController
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
  
   private
- 
-  def user_not_authorized
-    redirect_to(request.referrer || rootpath)
-  end
 
   def find_project
     @project = Project.find(params[:id])

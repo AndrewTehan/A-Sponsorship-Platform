@@ -23,17 +23,5 @@ module UserSettings
         UserSetting.create(user: @current_user, settable: settable_entity)
       end
     end
-
-    def regions
-      Region.where(id: user_setting_params[:region_ids])
-    end
-
-    def spheres
-      Sphere.where(id: user_setting_params[:sphere_ids])
-    end
-
-    def requirements
-      RequirementsPhrase.where(id: user_setting_params[:requirement_ids])
-    end
   end
 end
