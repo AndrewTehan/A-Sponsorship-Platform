@@ -15,7 +15,7 @@ class ProjectsController < ApplicationController
 
   def new
     @project = Project.new
-    authorize @project  
+    authorize @project
   end
 
   def create
