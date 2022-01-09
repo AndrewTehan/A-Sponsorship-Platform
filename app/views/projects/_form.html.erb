@@ -1,29 +1,42 @@
-<%= simple_form_for @project do |form| %>
-  Regions:
-  <%= form.collection_check_boxes :region_ids, @regions, :id, :name %><br> 
-  <%# form.collection_select :region_ids, @regions, :id, :name, { multiple: true } %>
+<section id="contact" class="contact" style="margin-top: 40px">
+  <div class="container" data-aos="fade-up">
+    <header class="section-header">
+      <h2>Create New Project</h2>
+    </header>
+    <div class="col-lg-12">
+      <%= simple_form_for @project do |form| %>            
+        <div class="container">
+          <div class="row">
+            <div class="col">
+              <%= form.collection_select(:region_ids, @regions, :id, :name, {:prompt => "Please Select a Regions"}, {:multiple => true, class: 'form-control', required: true }) %>
+            </div>
+            <div class="col">
+              <%= form.collection_select(:sphere_ids, @spheres, :id, :name, {:prompt => "Please Select a Spheres"}, {:multiple => true, class: 'form-control', required: true }) %>
+            </div>
+            <div class="col">
+              <%= form.collection_select(:requirements_phrase_ids, @conditions, :id, :name, {:prompt => "Please Select a Conditions"}, {:multiple => true, class: 'form-control', required: true }) %><br> 
+            </div>
+          </div>
+        </div>
 
-  Spheres:
-  <%= form.collection_check_boxes :sphere_ids, @spheres, :id, :name %><br>
+        <div class="row gy-4">
+          <div class="col-md-12">
+            <%= form.input :title, label: 'Your Project Title', input_html: { class: 'form-control' }, placeholder: "Your Project Title" %><br>
+            <% @project.errors.full_messages_for(:title).each do |message| %>
+              <div><%= message %></div>
+            <% end %>
+          </div>
 
-  Conditions:
-  <%= form.collection_check_boxes :requirements_phrase_ids, @conditions, :id, :name %> 
+          <div class="col-md-12">
+            <%= form.input :description, as: :text, label: 'Your Project Description', input_html: { class: 'form-control' }, placeholder: "Your Project Description" %><br>
+            <% @project.errors.full_messages_for(:description).each do |message| %>
+              <div><%= message %></div>
+            <% end %>
+          </div>
 
-  <div>
-    <%= form.input :title, label: :title %><br>
-    <% @project.errors.full_messages_for(:title).each do |message| %>
-      <div><%= message %></div>
-    <% end %>
+          <%= form.submit 'Submit', class: 'btn btn-primary' %>
+        </div>
+      <% end %>
+    </div>
   </div>
-
-  <div>
-    <%= form.input :description, as: :text, label: :description %><br>
-    <% @project.errors.full_messages_for(:description).each do |message| %>
-      <div><%= message %></div>
-    <% end %>
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
+</section>

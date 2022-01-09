@@ -1,0 +1,26 @@
+<section id="contact" class="contact">
+  <div class="container" data-aos="fade-up">
+    <header class="section-header">
+      <h2>Edit My Profile</h2>
+    </header>
+    <div class="row gy-4">
+      <div class="col-lg-12">
+        <%= simple_form_for @user do |form| %>
+          <div class="row gy-4">
+            <div class="col md-6">
+              <%= form.input :nick, label: 'Your Nick', input_html: { class: 'form-control' } %><br>
+            </div>
+
+            <div class="col md-6">
+              <%= form.input :email, as: :text, label: 'Your Email', input_html: { class: 'form-control' } %><br>
+            </div>
+          </div>
+
+          <div>
+            <%= form.submit 'Submit', class: 'btn btn-primary' %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>

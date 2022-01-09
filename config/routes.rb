@@ -3,8 +3,13 @@ require 'sidekiq/web'
 Rails.application.routes.draw do
   mount Sidekiq::Web => '/sidekiq'
 
-  root 'projects#index'
-  get 'users/my_settings'
+  root 'users#home'
+  get 'users/settings'
+  get '/home', to: 'users#home'
+  get '/about', to: 'users#about'
+  get '/user_comments', to: 'users#user_comments'
+  get '/user_projects', to: 'users#user_projects'
+  get '/user_proposals', to: 'users#user_proposals'
   post '/search', to: 'search#search'
 
   devise_for :users

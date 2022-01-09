@@ -9,7 +9,7 @@ class UserSettingsController < ApplicationController
     @project = UserSettings::Creator.new(user_setting_params, current_user).call
 
     if @project
-      redirect_to users_my_settings_path
+      redirect_to users_settings_path
     else
       render :new
     end
@@ -19,7 +19,7 @@ class UserSettingsController < ApplicationController
     @user_setting = UserSetting.find(params[:id])
     @user_setting.destroy
 
-    redirect_to users_my_settings_path
+    redirect_to users_settings_path
   end
 
   private

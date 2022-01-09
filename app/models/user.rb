@@ -3,11 +3,11 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :confirmable
 
-  has_many :user_settings
-  has_many :projects
-  has_many :sponsor_proposals
+  has_many :user_settings, dependent: :destroy
+  has_many :projects , dependent: :destroy
+  has_many :sponsor_proposals, dependent: :destroy
   has_many :comments, dependent: :destroy
-  has_one :contact
+  has_one :contact, dependent: :destroy
 
   enum role: { sponsor: 0, businessman: 1 }
 

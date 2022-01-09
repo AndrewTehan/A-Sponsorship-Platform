@@ -1,0 +1,33 @@
+<section id="faq" class="faq" style="margin-top: 40px">
+  <div class="container" data-aos="fade-up">
+    <header class="section-header">
+      <h2>My Comments</h2>
+    </header>
+
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="accordion accordion-flush" id="faqlist1">
+          <% unless @user_comments.blank? %>
+            <% @user_comments.each do |comment| %>
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-<%= comment.id %>">
+                    Comment on <%= comment.commentable_type %>&nbsp;
+                    <%= link_to 'Delete', comment_path(comment), method: :delete, data: { confirm: "Are you sure?" } %>
+                  </button>
+                </h2>
+                <div id="faq-content-<%= comment.id %>" class="accordion-collapse collapse" data-bs-parent="#faqlist1">
+                  <div class="accordion-body">
+                    <%= comment.text %>.
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          <% else %>
+            <h2> Your comments will be displayed here!!! </h2>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
