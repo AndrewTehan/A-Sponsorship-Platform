@@ -1,51 +1,152 @@
-<h1>Title: <%= @project.title %></h1>
+<section id="faq"  class="about" style="margin-top: 40px">
+  <div class="container" data-aos="fade-up">
 
-<p>Description: <%= @project.description %></p>
+    <header class="section-header">
+      <h2><%= @project.title %></h2>
+    </header>
 
-<p>Businessman: <%= @project.user.email %></p>
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="accordion accordion-flush" id="faqlist1">
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-1">
+                Prospective Regions
+              </button>
+            </h2>
+            <div id="faq-content-1" class="accordion-collapse collapse" data-bs-parent="#faqlist1">
+              <div class="accordion-body">
+                <p>
+                  <% @project.regions.each do |region| %>
+                    <%= region.name %>
+                  <% end %>
+                </p>
+              </div>
+            </div>
+          </div>
 
-<p>Regions:</p>
-<ul>
-  <% @project.regions.each do |region| %>
-    <li><%= region.name %></li>
-  <% end %>
-</ul>
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-2">
+                Actual Spheres
+              </button>
+            </h2>
+            <div id="faq-content-2" class="accordion-collapse collapse" data-bs-parent="#faqlist1">
+              <div class="accordion-body">
+                <p>
+                  <% @project.spheres.each do |sphere| %>
+                    <%= sphere.name %>
+                  <% end %>
+                </p>
+              </div>
+            </div>
+          </div>
 
-<p>Spheres:</p>
-<ul>
-  <% @project.spheres.each do |sphere| %>
-    <li><%= sphere.name %></li>
-  <% end %>
-</ul>
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-3">
+                Our Requirements
+              </button>
+            </h2>
+            <div id="faq-content-3" class="accordion-collapse collapse" data-bs-parent="#faqlist1">
+              <div class="accordion-body">
+                <p>
+                  <% @project.requirements_phrases.each do |requirement| %>
+                    <%= requirement.name %>
+                  <% end %>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-<p>Project requirement:</p>
-<ul>
-  <% @project.requirements_phrases.each do |requirement| %>
-    <li><%= requirement.name %></li>
-  <% end %>
-</ul>
-
-<ul>
-  <li><%= link_to "Edit", edit_project_path(@project) %></li>
-  <li><%= link_to "Delete", project_path(@project),
-                  method: :delete,
-                  data: { confirm: "Confirm" } %></li>
-</ul>
-
-<div>
-  <div style="float: left;">
-    <h2>Add a comment to project:</h2>
-    <%= render partial: 'comments/form', locals: {commentable_type: 'Project', commentable_id: @project.id} %>
-
-    <h2>Project comments</h2>
-    <%= render @project.comments %>
+    <div class="content">
+        <h2>Project Description: <%= @project.description %></h2>
+    </div>
   </div>
 
-  <div style="float: left; margin-left: 20%;">
-    <h2>Sponsor proposal</h2>
-    <%= render sponsor_proposals %>
+</section>
 
-    <h2>Add a proposal to project:</h2>
-    <%= render 'sponsor_proposals/form' %>
+<section id="contact" class="contact">
+    <div class="container" data-aos="fade-up">
+      <header class="section-header">
+        <h2>Project Author - <%= @project.user.nick %></h2>
+        <% if current_user == @project.user %>
+          <div class="row gy-4">
+            <div class="col-md-6">
+              <a><%= link_to "Edit", edit_project_path(@project) %></a>
+            </div>
+            <div class="col-md-6">
+              <a><%= link_to "Delete", project_path(@project), method: :delete, data: { confirm: "Confirm" } %></a>
+            </div>
+          </div>
+        <% end %>  
+      </header>          
+
+      <div class="row gy-4">
+        <div class="col-lg-12">
+          <div class="row gy-4">
+            <div class="col-md-6">
+              <div class="info-box">
+                <i class="bi bi-envelope"></i>
+                <h3>Email</h3>
+                <p><%= @project.user.email %></p>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="info-box">
+                <i class="bi bi-telephone"></i>
+                <h3>Phone Number</h3>
+                <p>Phone nado</p>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="info-box">
+                <i class="bi bi-skype"></i>
+                <h3>Skype</h3>
+                <p>Skype nado</p>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="info-box">
+                <i class="bi bi-telegram"></i>
+                <h3>Telegram</h3>
+                <p>Telegram nado</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</section>
+
+<section id="faq" class="faq">
+  <div class="container" data-aos="fade-up">
+    <div class="row">
+      <div class="col-lg-6">
+        <!-- comments-->
+        <header class="section-header">
+          <h2>Add a comment to project</h2>
+        </header>
+        <%= render partial: 'comments/form', locals: {commentable_type: 'Project', commentable_id: @project.id} %>
+
+        <h3>Project comments</h3>
+        <%= render @project.comments %>
+      </div>
+
+      <div class="col-lg-6">
+        <!-- sponsor proposal-->
+        <header class="section-header">
+          <h2>Add a Sponsor proposal</h2>
+        </header>
+        <%= render sponsor_proposals %>
+
+        <h3>Add a proposal to project:</h3>
+        <%= render 'sponsor_proposals/form' %>
+      </div>
+    </div>
   </div>
-</div>
+</section>
+

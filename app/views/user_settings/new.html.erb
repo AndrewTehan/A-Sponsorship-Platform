@@ -1,18 +1,27 @@
-<h1>Add User Settings</h1>
+<section id="pricing" class="pricing">
+  <div class="container" data-aos="fade-up">
+    <%= simple_form_for @user_setting_form, url: user_settings_path do |form| %>
+      <%= form.hidden_field :user_id, value: current_user.id %>
+      
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <%= form.collection_select(:region_ids, @regions, :id, :name, {:prompt => "Please Select a Regions"}, {:multiple => true, class: 'form-control' }) %><br> 
+          </div>
+          <div class="col">
+            <%= form.collection_select(:sphere_ids, @spheres, :id, :name, {:prompt => "Please Select a Spheres"}, {:multiple => true, class: 'form-control' }) %><br> 
+          </div>
+          <div class="col">
+            <%= form.collection_select(:requirement_ids, @requirements, :id, :name, {:prompt => "Please Select a Requirements"}, {:multiple => true, class: 'form-control' }) %><br> 
+          </div>
+        </div>
 
-<%= simple_form_for @user_setting_form, url: user_settings_path do |form| %>
-  <%= form.hidden_field :user_id, value: current_user.id %>
-
-  Regions:
-  <%= form.collection_check_boxes :region_ids, @regions, :id, :name %><br> 
-
-  Spheres:
-  <%= form.collection_check_boxes :sphere_ids, @spheres, :id, :name %><br>
-
-  Conditions:
-  <%= form.collection_check_boxes :requirement_ids, @requirements, :id, :name %> 
-
-  <div>
-    <%= form.submit %>
+        <div class="row">
+          <div class="col">
+            <%= form.submit 'Submit', class: 'btn btn-primary' %>
+          </div>
+        </div>
+      </div>
+    <% end %>
   </div>
-<% end %>
+</section>

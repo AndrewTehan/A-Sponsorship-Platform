@@ -1,15 +1,52 @@
-<h1>Projects</h1>
+<main id="main">
+  <section id="about" class="about" style="margin-top: 40px">
+    <div class="container" data-aos="fade-up">
+      <div class="row gx-0">
+        <div class="col-lg-12 d-flex flex-column justify-content-center" data-aos="fade-up" data-aos-delay="200">
+          <% unless @projects.blank? %>
+            <% @projects.each do |project| %>
+              <div class="content" style="margin-top: 20px">
+                <h3><%= project.title %></h3>
+                <h2><%= project.description[0..150] %></h2>
+                  <p>
+                    Relevance in 
+                    <% project.regions[0..3].each do |region| %>
+                      <%= region.name %>
+                    <% end %>
+                    ...
+                  </p>
 
-<ul>
-  <% unless @projects.nil? %>
-    <% @projects.each do |project| %>
-      <li>
-        <%= link_to project.title, project %>
-      </li>
-    <% end %>
-  <% end %>
-</ul>
+                  <p>
+                    Spheres:  
+                    <% project.spheres[0..3].each do |sphere| %>
+                      <%= sphere.name %>
+                    <% end %>
+                    ...
+                  </p>
 
-<%= paginate @projects %>
+                  <p>
+                    We expect 
+                    <% project.requirements_phrases[0..3].each do |requirement| %>
+                      <%= requirement.name %>
+                    <% end %>
+                    ...
+                  </p>
 
-<%= link_to "New project", new_project_path %>
+                <div class="text-center text-lg-start">
+                  <a href="<%= project_path(project) %>" class="btn-read-more d-inline-flex align-items-center justify-content-center align-self-center">
+                    <span>Read More</span>
+                    <i class="bi bi-arrow-right"></i>
+                  </a>
+                </div>
+              </div>
+            <% end %>
+          <% else %>
+            <h2> There aren't any projects yet( </h2>
+          <% end %>
+
+          <%= paginate @projects %>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

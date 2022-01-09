@@ -1,0 +1,29 @@
+<section id="features" class="features">
+  <div class="container" data-aos="fade-up">
+    <div class="row feature-icons" data-aos="fade-up">
+      <h3>Ratione mollitia eos ab laudantium rerum beatae quo</h3>
+
+      <div class="row">
+
+        <div class="col-xl-4 text-center" data-aos="fade-right" data-aos-delay="100">
+          <img src="/assets/theme/img/features-3.png" class="img-fluid p-4" alt="">
+        </div>
+
+        <div class="col-xl-8 d-flex content">
+          <div class="row align-self-center gy-4">
+            <ul class="list-group list-group-flush">
+              <% unless @user_settings.nil? %>
+                <% @user_settings.each do |user_setting| %>
+                  <li class="list-group-item"><h4><%= user_setting.settable.name %> <%= link_to " Delete", user_setting_path(user_setting), method: :delete, data: { confirm: "Confirm" } %></h4></li>
+                <% end %>
+              <% end %>
+            </ul>
+
+            <h4><%= link_to "Add Settings", new_user_setting_path, method: :get %></h4>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

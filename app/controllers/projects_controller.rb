@@ -14,14 +14,14 @@ class ProjectsController < ApplicationController
 
   def new
     @project = Project.new
-    authorize @project    
+    authorize @project  
   end
 
   def create
     @project = Projects::Creator.new(project_params, current_user).call
     authorize @project
     if @project
-      redirect_to root_path
+      redirect_to projects_path
     else
       render :new
     end
@@ -43,7 +43,7 @@ class ProjectsController < ApplicationController
   def destroy
     authorize @project
     @project.destroy
-    redirect_to root_path
+    redirect_to projects_path
   end
 
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized

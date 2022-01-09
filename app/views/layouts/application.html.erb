@@ -30,38 +30,37 @@
     <header id="header" class="header fixed-top">
       <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
-        <a href="index.html" class="logo d-flex align-items-center">
+        <a href="<%= root_path %>" class="logo d-flex align-items-center">
           <img src="/assets/theme/img/logo.png" alt="">
-          <span>FlexStart</span>
+          <span>Sponsorify</span>
         </a>
 
         <nav id="navbar" class="navbar">
           <ul>
-            <li><a class="nav-link scrollto " href="#hero">Home</a></li>
-            <li><a class="nav-link scrollto" href="#about">About</a></li>
-            <li><a class="nav-link scrollto" href="#services">Services</a></li>
-            <li><a class="nav-link scrollto" href="#portfolio">Portfolio</a></li>
-            <li><a class="nav-link scrollto" href="#team">Team</a></li>
-            <li><a class="active" href="blog.html">Blog</a></li>
-            <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
-              <ul>
-                <li><a href="#">Drop Down 1</a></li>
-                <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
-                  <ul>
-                    <li><a href="#">Deep Drop Down 1</a></li>
-                    <li><a href="#">Deep Drop Down 2</a></li>
-                    <li><a href="#">Deep Drop Down 3</a></li>
-                    <li><a href="#">Deep Drop Down 4</a></li>
-                    <li><a href="#">Deep Drop Down 5</a></li>
-                  </ul>
-                </li>
-                <li><a href="#">Drop Down 2</a></li>
-                <li><a href="#">Drop Down 3</a></li>
-                <li><a href="#">Drop Down 4</a></li>
-              </ul>
-            </li>
-            <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
-            <li><a class="getstarted scrollto" href="#about">Get Started</a></li>
+            <li><a class="nav-link scrollto " href="<%= home_path %>">Home</a></li>
+            <li><a class="nav-link scrollto" href="<%= about_path %>">About</a></li>
+            <% if current_user %>
+              <li class="dropdown"><a href="#"><span>Setting</span> <i class="bi bi-chevron-down"></i></a>
+                <ul>
+                  <li class="dropdown"><a href="<%= user_path(current_user) %>"><span>Me</span> <i class="bi bi-chevron-right"></i></a>
+                    <ul>
+                      <li><a href="<%= edit_user_path(current_user) %>">Edit</a></li>
+                      <li><a href="<%= users_settings_path %>">My Settings</a></li>
+                    </ul>
+                  </li>
+                  <li><%= link_to 'Sign out', destroy_user_session_path, method: :delete %></li>
+                  <li><%= link_to 'Delete', user_path(current_user), method: :delete, data: { confirm: "Are you sure?" } %></li>
+                </ul>
+              </li>
+              <li><a class="nav-link scrollto" href="<%= projects_path %>">Surf the Projects</a></li>
+              <li><a class="nav-link scrollto" href="<%= user_comments_path %>">My Comments</a></li>
+              <% if current_user.businessman? %>
+                <li><a class="nav-link scrollto" href="<%= user_projects_path %>">My Projects</a></li>
+                <li><a class="getstarted scrollto" href="<%= new_project_path %>">Get Started</a></li>
+              <% else %>
+                <li><a class="nav-link scrollto" href="<%= user_proposals_path %>">My Proposals</a></li>
+              <% end %>
+            <% end %>
           </ul>
           <i class="bi bi-list mobile-nav-toggle"></i>
         </nav>
@@ -70,5 +69,53 @@
     </header>
 
     <%= yield %>
+
+    <footer id="footer" class="footer">
+
+      <div class="footer-top">
+        <div class="container">
+          <div class="row gy-4">
+            <div class="col-lg-5 col-md-12 footer-info">
+              <a href="<%= home_path %>" class="logo d-flex align-items-center">
+                <img src="/assets/theme/img/logo.png" alt="">
+                <span>Sponsorify</span>
+              </a>
+              <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita valies darta donna mare fermentum iaculis eu non diam phasellus.</p>
+            </div>
+
+            <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
+              <h4>Contact Us</h4>
+              <p>
+                A108 Adam Street <br>
+                New York, NY 535022<br>
+                United States <br><br>
+                <strong>Phone:</strong> +1 5589 55488 55<br>
+                <strong>Email:</strong> info@example.com<br>
+              </p>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="copyright">
+          &copy; Copyright <strong><span>Sponsorify</span></strong>. All Rights Reserved
+        </div>
+      </div>
+    </footer>
+
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+    <script src="/assets/theme/vendor/purecounter/purecounter.js"></script>
+    <script src="/assets/theme/vendor/aos/aos.js"></script>
+    <script src="/assets/theme/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/theme/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="/assets/theme/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="/assets/theme/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="/assets/theme/vendor/php-email-form/validate.js"></script>
+
+    <script src="/assets/theme/js/main.js"></script>
   </body>
 </html>

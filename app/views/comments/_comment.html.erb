@@ -1,13 +1,58 @@
 <div class="comment-wrapper <%= comment.commentable_type.downcase %>">
-<p>
-  <strong>User:</strong>
-  <%= comment.user.email %>
-</p>
-<p>
-  <strong>User comment:</strong>
-  <%= comment.text %>
-</p>
-<%= render partial: 'comments/form', locals: {commentable_type: 'Comment', commentable_id: comment.id} %>
+  <p>
+    <strong>User:</strong>
+    <%= comment.user.email %>
+  </p>
+  <p>
+    <strong>User comment:</strong>
+    <%= comment.text %>
+  </p>
+  <%= render partial: 'comments/form', locals: {commentable_type: 'Comment', commentable_id: comment.id} %>
 
-<%= render comment.comments, locals: {commentable_type: 'Project'} %>
+  <%= render comment.comments, locals: {commentable_type: 'Project'} %>
 </div>
+
+<%
+=begin%>
+ <div class="accordion accordion-flush" id="faqlist2">
+  <div class="accordion-item">
+    <h2 class="accordion-header">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2-content-1">
+        Ac odio tempor orci dapibus. Aliquam eleifend mi in nulla?
+      </button>
+    </h2>
+    <div id="faq2-content-1" class="accordion-collapse collapse" data-bs-parent="#faqlist2">
+      <div class="accordion-body">
+        Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion-item">
+    <h2 class="accordion-header">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2-content-2">
+        Tempus quam pellentesque nec nam aliquam sem et tortor consequat?
+      </button>
+    </h2>
+    <div id="faq2-content-2" class="accordion-collapse collapse" data-bs-parent="#faqlist2">
+      <div class="accordion-body">
+        Molestie a iaculis at erat pellentesque adipiscing commodo. Dignissim suspendisse in est ante in. Nunc vel risus commodo viverra maecenas accumsan. Sit amet nisl suscipit adipiscing bibendum est. Purus gravida quis blandit turpis cursus in
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion-item">
+    <h2 class="accordion-header">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2-content-3">
+        Varius vel pharetra vel turpis nunc eget lorem dolor?
+      </button>
+    </h2>
+    <div id="faq2-content-3" class="accordion-collapse collapse" data-bs-parent="#faqlist2">
+      <div class="accordion-body">
+        Laoreet sit amet cursus sit amet dictum sit amet justo. Mauris vitae ultricies leo integer malesuada nunc vel. Tincidunt eget nullam non nisi est sit amet. Turpis nunc eget lorem dolor sed. Ut venenatis tellus in metus vulputate eu scelerisque. Pellentesque diam volutpat commodo sed egestas egestas fringilla phasellus faucibus. Nibh tellus molestie nunc non blandit massa enim nec.
+      </div>
+    </div>
+  </div>
+</div> 
+<%
+=end%>
