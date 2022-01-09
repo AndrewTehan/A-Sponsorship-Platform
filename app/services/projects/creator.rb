@@ -20,6 +20,7 @@ module Projects
     private
 
     def user_notification(project_id)
+      binding.pry
       NewProjectNotificatorWorker.perform_async(project_id)
     end
 

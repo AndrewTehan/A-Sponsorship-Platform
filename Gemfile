@@ -24,6 +24,8 @@ gem 'sidekiq'
 gem 'pundit'
 gem 'elasticsearch-model', github: 'elastic/elasticsearch-rails', branch: 'main'
 gem 'elasticsearch-rails', github: 'elastic/elasticsearch-rails', branch: 'main'
+gem 'whenever', require: false
+gem "sidekiq-cron", "~> 1.1"
 
 # Authentication
 gem 'devise'

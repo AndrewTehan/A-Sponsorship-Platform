@@ -1,6 +1,7 @@
  <p>
     <strong>Sponsor:</strong>
     <%= sponsor_proposal.user.email %>
+    <%= link_to 'Reject', project_sponsor_proposal_reject_path(@project ,sponsor_proposal)%>
   </p>
   <p>
     <strong>Sponsor proposal:</strong>
