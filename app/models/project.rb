@@ -18,7 +18,7 @@ class Project < ApplicationRecord
   validates :title, presence: true
   validates :description, presence: true
 
-  paginates_per 3
+  paginates_per 5
 
   enum state: { active: 0, closed: 1 }
 end
