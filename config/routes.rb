@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get '/user_comments', to: 'users#user_comments'
   get '/user_projects', to: 'users#user_projects'
   get '/user_proposals', to: 'users#user_proposals'
+  post '/search', to: 'search#search'
 
   devise_for :users
 

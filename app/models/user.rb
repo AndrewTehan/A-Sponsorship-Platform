@@ -8,7 +8,7 @@ class User < ApplicationRecord
   has_many :sponsor_proposals, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_one :contact, dependent: :destroy
-  
+
   enum role: { sponsor: 0, businessman: 1 }
 
   scope :sponsors, -> { where(role: 0) }

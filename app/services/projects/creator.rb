@@ -24,7 +24,7 @@ module Projects
     end
 
     attr_reader :project_params
-    alias :entity_params :project_params
+    alias entity_params project_params
 
     def project_properties
       @project_params.slice(:title, :description)

@@ -3,7 +3,8 @@ class ProjectsController < ApplicationController
   before_action :find_project, only: %i[show edit update destroy]
 
   def index
-    @projects = Project.page params[:page]
+    projects_array = Projects::Filter.new(current_user).do_filter
+    @projects = Kaminari.paginate_array(projects_array).page(params[:page]).per(5)
     authorize @projects
   end
 
@@ -47,12 +48,8 @@ class ProjectsController < ApplicationController
   end
 
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
- 
+
   private
- 
-  def user_not_authorized
-    redirect_to(request.referrer || rootpath)
-  end
 
   def find_project
     @project = Project.find(params[:id])

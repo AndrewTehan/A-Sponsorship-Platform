@@ -9,20 +9,16 @@ class SponsorProposalsController < ApplicationController
 
   def reject
     @project = Project.find(params[:project_id])
-    sponsor_proposal.update!(status: 'rejected') 
+    sponsor_proposal.update!(status: 'rejected')
     redirect_to project_path(@project)
   end
 
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
- 
+
   private
 
   def sponsor_proposal
-    SponsorProposal.find(params[:sponsor_proposal_id])  
-  end
- 
-  def user_not_authorized
-    redirect_to(request.referrer || rootpath)
+    SponsorProposal.find(params[:sponsor_proposal_id])
   end
 
   def sponsor_proposal_params

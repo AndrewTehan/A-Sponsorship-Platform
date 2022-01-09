@@ -37,6 +37,17 @@
 
         <nav id="navbar" class="navbar">
           <ul>
+            <li>
+              <%= form_with url: search_path, local: false, model: @text do |form| %>
+                <div class="form-floating">         
+                  <%= form.text_field :text, class: 'form-control', id: 'text', required: true %>
+                  <%= form.label 'Search', for: 'text' %>
+                  <%= form.submit 'Search', id: 'search_button', hidden: true %>
+                </div>
+              <% end %>  
+
+              <div id='results' style='position: relative; z-index: 2;'></div>   
+            </li>
             <li><a class="nav-link scrollto " href="<%= home_path %>">Home</a></li>
             <li><a class="nav-link scrollto" href="<%= about_path %>">About</a></li>
             <% if current_user %>
@@ -67,7 +78,7 @@
 
       </div>
     </header>
-
+  
     <%= yield %>
 
     <footer id="footer" class="footer">
@@ -119,3 +130,10 @@
     <script src="/assets/theme/js/main.js"></script>
   </body>
 </html>
+
+<script>
+  $('#text').on('input', () =>
+  {
+    $('#search_button').click()
+  })
+</script>
