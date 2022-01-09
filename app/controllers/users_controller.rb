@@ -1,6 +1,6 @@
-class UsersController < ApplicationController 
+class UsersController < ApplicationController
   before_action :init_user, only: %i[show edit update]
- 
+
   def settings
     @user_settings = current_user.user_settings
   end
@@ -26,8 +26,6 @@ class UsersController < ApplicationController
   def destroy
     current_user.destroy
   end
-
-  def show;  end
 
   def edit;  end
 
