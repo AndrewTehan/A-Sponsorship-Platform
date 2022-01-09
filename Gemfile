@@ -22,6 +22,8 @@ gem 'bootstrap', '~> 5.1.3'
 gem 'jquery-rails'
 gem 'sidekiq'
 gem 'pundit'
+gem 'whenever', require: false
+gem "sidekiq-cron", "~> 1.1"
 
 # Authentication
 gem 'devise'
