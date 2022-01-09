@@ -16,7 +16,7 @@ module UserSettings
     private
 
     attr_reader :user_setting_params
-    alias :entity_params :user_setting_params
+    alias entity_params user_setting_params
 
     def create_user_settings(settable_entities)
       settable_entities.each do |settable_entity|

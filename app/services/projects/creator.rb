@@ -20,12 +20,11 @@ module Projects
     private
 
     def user_notification(project_id)
-      binding.pry
       NewProjectNotificatorWorker.perform_async(project_id)
     end
 
     attr_reader :project_params
-    alias :entity_params :project_params
+    alias entity_params project_params
 
     def project_properties
       @project_params.slice(:title, :description)
