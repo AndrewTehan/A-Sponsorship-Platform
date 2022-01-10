@@ -12,7 +12,7 @@
               <div class="accordion-item">
                 <h2 class="accordion-header">
                   <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-<%= comment.id %>">
-                    Proposal - <%= proposal. %>&nbsp;
+                    Proposal - <%= proposal.user %>&nbsp;
                     <%= link_to 'Delete', comment_path(comment), method: :delete, data: { confirm: "Are you sure?" } %>
                   </button>
                 </h2>
