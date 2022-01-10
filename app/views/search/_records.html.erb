@@ -1,5 +1,5 @@
 <div>
   <% @search_list.each do |record| %>  
-      <p> <%= link_to record.title, projects_path%> </p>
+      <p> <%= link_to record.title, project_path(record)%> </p>
   <% end %>
 </div>  
