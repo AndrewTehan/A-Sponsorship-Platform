@@ -1,35 +1,48 @@
-<h2>Sign up</h2>
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= f.input :email,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "email" }%>
-    <%= f.input :nick,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "nick" }%>
-    <%= f.input :about_me,
-                required: true,
-                autofocus: true %>
-    <%= f.input :role,
-                :as => :select,
-                :collection => User.roles.keys.to_a %>
-    <%= f.input :password,
-                required: true,
-                hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
-                required: true,
-                input_html: { autocomplete: "new-password" } %>
+<section id="contact" class="contact">
+  <div class="container" data-aos="fade-up">
+    <header class="section-header">
+      <h2>Sign up</h2>
+    </header>
+
+    <div class="row gy-4">
+      <div class="col-lg-12">
+        <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <%= f.error_notification %>
+
+          <div class="form-inputs">
+            <%= f.input :email,
+                        required: true,
+                        autofocus: true,
+                        input_html: { autocomplete: "email", class: "form-control" }%>
+            <%= f.input :nick,
+                        required: true,
+                        autofocus: true,
+                        input_html: { autocomplete: "nick", class: "form-control" }%>
+            <%= f.input :about_me,
+                        required: true,
+                        autofocus: true,
+                        input_html: { class: "form-control" } %>
+            <%= f.input :role,
+                        :as => :select,
+                        :collection => User.roles.keys.to_a,
+                        input_html: { class: "form-control" }%>
+            <%= f.input :password,
+                        required: true,
+                        hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                        input_html: { autocomplete: "new-password", class: "form-control"  } %>
+            <%= f.input :password_confirmation,
+                        required: true,
+                        input_html: { autocomplete: "new-password", class: "form-control"  } %>
+          </div>
+
+          <div class="form-actions">
+            <%= f.button :submit, "Sign up" %>
+          </div>
+          <%= render "devise/shared/links" %>
+        <% end %>
+      </div>
+    </div>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</section>
