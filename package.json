@@ -1,0 +1,17 @@
+{
+  "dependencies": {
+    "@rails/actiontext": "^6.1.4-1",
+    "@rails/webpacker": "3.5",
+    "trix": "^1.2.0"
+  },
+  "devDependencies": {
+    "webpack-dev-server": "2.11.2"
+  },
+  "name": "SponsorshipPlatform",
+  "version": "1.0.0",
+  "main": "index.js",
+  "private": true,
+  "repository": "git@github.com:AndrewTehan/A-Sponsorship-Platform.git",
+  "author": "Your Name <you@example.com>",
+  "license": "MIT"
+}
