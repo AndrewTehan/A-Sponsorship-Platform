@@ -3,9 +3,9 @@ class ProjectsController < ApplicationController
   before_action :find_project, only: %i[show edit update destroy]
 
   def index
-    projects_array = Projects::Filter.new(current_user).do_filter
-    @projects = Kaminari.paginate_array(projects_array).page(params[:page]).per(5)
-    authorize @projects
+    authorize Project
+    projects = Projects::Filter.new(current_user).do_filter
+    @projects = Kaminari.paginate_array(projects).page(params[:page]).per(5)
   end
 
   def show

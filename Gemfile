@@ -26,6 +26,8 @@ gem 'elasticsearch-model', github: 'elastic/elasticsearch-rails', branch: 'main'
 gem 'elasticsearch-rails', github: 'elastic/elasticsearch-rails', branch: 'main'
 gem 'whenever', require: false
 gem "sidekiq-cron", "~> 1.1"
+gem 'webpacker', '~> 3.5'
+gem "image_processing", "~> 1.2"
 
 # Authentication
 gem 'devise'

@@ -14,6 +14,8 @@ class Project < ApplicationRecord
   has_many :gradings
   belongs_to :user
 
+  has_rich_text :development_plan
+
   validates :title, presence: true
   validates :description, presence: true
 

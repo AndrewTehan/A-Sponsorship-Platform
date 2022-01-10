@@ -33,9 +33,14 @@
               <div><%= message %></div>
             <% end %>
           </div>
-
-          <%= form.submit 'Submit', class: 'btn btn-primary' %>
         </div>
+
+        <div class="field">
+          <%= form.label :development_plan %>
+          <%= form.rich_text_area :development_plan %>
+        </div>
+          
+          <%= form.submit 'Submit', class: 'btn btn-primary' %>
       <% end %>
     </div>
   </div>
